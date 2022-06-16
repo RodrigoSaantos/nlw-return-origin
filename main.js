@@ -1,4 +1,13 @@
+window.addEventListener('scroll', onScroll)
+
+onScroll()
+
 function onScroll() {
+  showNavOnScroll()
+  showBackToTopButtonOnScroll()
+}
+
+function showNavOnScroll() {
   const nav = document.querySelector('#navigation')
   if (scrollY > 0) {
     nav.classList.add('scroll')
@@ -7,12 +16,20 @@ function onScroll() {
   }
 }
 
+function showBackToTopButtonOnScroll() {
+  if (scrollY > 550) {
+    backToTopButton.classList.add('show')
+  } else {
+    backToTopButton.classList.remove('show')
+  }
+}
+
 function openMenu() {
-  document.body.classList.add('menu-expanded')
+  document.body.classList.add('menu-expanded');
 }
 
 function closeMenu() {
-  document.body.classList.remove('menu-expanded')
+  document.body.classList.remove('menu-expanded');
 }
 
 ScrollReveal({
